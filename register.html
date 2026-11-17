@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join | Biryani & Biceps</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="auth-body">
+
+<main class="auth-layout">
+
+  <aside class="auth-visual">
+
+    <a class="brand auth-brand" href="index.html">
+      <span class="brand-mark">B&B</span>
+      <span>
+        <b>Biryani & Biceps</b>
+        <small>EAT WELL. LIFT HEAVY.</small>
+      </span>
+    </a>
+
+    <div class="auth-visual-copy">
+      <p class="eyebrow">THE GOOD FOOD. GOOD FORM CLUB.</p>
+
+      <h2>
+        YOUR NEXT<br>
+        <em>CHAPTER.</em>
+      </h2>
+
+      <p>
+        Build a routine that feels like yours.
+        Start with one session, then keep stacking those wins.
+      </p>
+
+      <div class="auth-visual-tag">
+        SHOW UP. DO THE WORK. REPEAT. ✳
+      </div>
+    </div>
+
+  </aside>
+
+  <div class="auth-shell">
+
+    <section class="auth-card">
+
+      <p class="eyebrow">START YOUR STORY</p>
+
+      <h1>
+        Let's get<br>
+        <em>stronger.</em>
+      </h1>
+
+      <p class="muted">
+        Create your member account. You can update your details later.
+      </p>
+
+      <form id="registerForm" class="form-stack">
+
+        <label>
+          Full name
+          <input
+            id="fullName"
+            type="text"
+            required
+            maxlength="80"
+            placeholder="Your name">
+        </label>
+
+        <label>
+          Email address
+          <input
+            id="email"
+            type="email"
+            required
+            placeholder="you@example.com">
+        </label>
+
+        <label>
+          Password
+          <input
+            id="password"
+            type="password"
+            required
+            minlength="6"
+            placeholder="At least 6 characters">
+        </label>
+
+        <label>
+          Fitness goal
+          <select id="goal" required>
+            <option value="">Choose your goal</option>
+            <option>Build Muscle</option>
+            <option>Lose Weight</option>
+            <option>Stay Fit</option>
+            <option>Sports Performance</option>
+          </select>
+        </label>
+
+        <label>
+          Membership plan
+          <select id="plan" required>
+            <option value="">Choose a plan</option>
+            <option value="Monthly">Monthly — ₹1,499</option>
+            <option value="Quarterly">Quarterly — ₹3,999</option>
+            <option value="Annual">Annual — ₹11,999</option>
+          </select>
+        </label>
+
+        <button class="btn btn-dark btn-full" type="submit">
+          Create account ↗
+        </button>
+
+        <p class="form-message" id="formMessage"></p>
+
+      </form>
+
+      <p class="auth-switch">
+        Already a member?
+        <a href="login.html">Log in</a>
+      </p>
+
+    </section>
+
+    <a class="back-home" href="index.html">← Back to home</a>
+
+  </div>
+
+</main>
+
+<script src="js/config.js"></script>
+<script type="module" src="js/auth.js"></script>
+
+</body>
+</html>

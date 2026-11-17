@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in | Biryani & Biceps</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="auth-body">
+
+<main class="auth-layout">
+
+  <aside class="auth-visual">
+
+    <a class="brand auth-brand" href="index.html">
+      <span class="brand-mark">B&B</span>
+      <span>
+        <b>Biryani & Biceps</b>
+        <small>EAT WELL. LIFT HEAVY.</small>
+      </span>
+    </a>
+
+    <div class="auth-visual-copy">
+      <p class="eyebrow">THE GOOD FOOD. GOOD FORM CLUB.</p>
+
+      <h2>
+        BACK TO<br>
+        <em>THE GRIND.</em>
+      </h2>
+
+      <p>
+        Your goals are still waiting.
+        Pick up where you left off and make today count.
+      </p>
+
+      <div class="auth-visual-tag">
+        SHOW UP. DO THE WORK. REPEAT. ✳
+      </div>
+    </div>
+
+  </aside>
+
+  <div class="auth-shell">
+
+    <section class="auth-card">
+
+      <p class="eyebrow">WELCOME BACK</p>
+
+      <h1>
+        Good to see<br>
+        <em>you again.</em>
+      </h1>
+
+      <p class="muted">
+        Log in and get back to your goals.
+      </p>
+
+      <form id="loginForm" class="form-stack">
+
+        <label>
+          Email address
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="you@example.com">
+        </label>
+
+        <label>
+          Password
+          <input
+            type="password"
+            id="password"
+            required
+            minlength="6"
+            placeholder="Your password">
+        </label>
+
+        <button class="btn btn-dark btn-full" type="submit">
+          Log in ↗
+        </button>
+
+        <p class="form-message" id="formMessage"></p>
+
+      </form>
+
+      <p class="auth-switch">
+        New around here?
+        <a href="register.html">Create an account</a>
+      </p>
+
+    </section>
+
+    <a class="back-home" href="index.html">← Back to home</a>
+
+  </div>
+
+</main>
+
+<script src="js/config.js"></script>
+<script type="module" src="js/auth.js"></script>
+
+</body>
+</html>
