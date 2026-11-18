@@ -1,8 +1,344 @@
+
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard | Biryani & Biceps</title><link rel="stylesheet" href="css/style.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100f0d">
+  <meta name="description" content="Biryani & Biceps — Your personalised fitness space.">
+
+  <title>Dashboard | Biryani &amp; Biceps</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
 <body class="dashboard-body">
-<aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">B&B</span><span><b>Biryani & Biceps</b><small>MEMBER SPACE</small></span></a><div class="side-label">YOUR SPACE</div><nav class="side-nav"><button class="side-link active" data-view="overview">⌂ <span>Overview</span></button><button class="side-link" data-view="membership">◉ <span>Membership</span></button><button class="side-link" data-view="classes">▦ <span>Class booking</span></button><button class="side-link" data-view="workouts">↗ <span>Fitness tracking</span></button><button class="side-link" data-view="payments">₹ <span>Payment & billing</span></button><button class="side-link" data-view="notifications">✳ <span>Notifications</span></button><button class="side-link" data-view="analytics">▥ <span>Fitness analytics</span></button></nav><div class="sidebar-bottom"><div class="side-note">SHOW UP.<br>DO THE WORK.<br>REPEAT. ✳</div><button id="logoutBtn" class="logout-btn">↗ Log out</button></div></aside>
-<main class="dashboard-main"><header class="dash-top"><div><p class="eyebrow" id="todayLabel">YOUR MEMBER SPACE</p><h1 id="pageTitle">Good things take reps.</h1></div><div class="user-chip"><span class="avatar" id="avatar">B</span><span><b id="userName">Member</b><small>MEMBER</small></span></div></header>
-<div id="viewRoot"><div class="loading">Loading your dashboard…</div></div></main>
-<div id="toast" class="toast" role="status"></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script type="module" src="js/dashboard.js"></script></body></html>
+
+  <!-- =================================
+       SIDEBAR
+  ================================== -->
+
+  <aside class="sidebar">
+
+    <!-- Official B&B mascot logo -->
+  
+<a class="brand" href="index.html">
+    <img
+        src="./assets/images/bb-mascot-logo.png"
+        alt="B&B Chicken Mascot"
+        class="brand-logo"
+    >
+
+    <span class="brand-text">
+        <b>Biryani &amp; Biceps</b>
+        <small>MEMBER SPACE</small>
+    </span>
+</a>
+
+
+    <div class="side-label">YOUR SPACE</div>
+
+    <!-- Navigation -->
+    <nav class="side-nav">
+
+      <button class="side-link active" data-view="overview">
+        ⌂ <span>Overview</span>
+      </button>
+
+      <button class="side-link" data-view="fitness">
+        ◉ <span>My fitness profile</span>
+      </button>
+
+      <button class="side-link" data-view="workouts">
+        ↗ <span>Workout planner</span>
+      </button>
+
+      <button class="side-link" data-view="nutrition">
+        ◈ <span>Nutrition planner</span>
+      </button>
+
+      <button class="side-link" data-view="wellness">
+        ✳ <span>Daily wellness</span>
+      </button>
+
+      <button class="side-link" data-view="classes">
+        ▦ <span>Class booking</span>
+      </button>
+
+      <button class="side-link" data-view="membership">
+        ◉ <span>Membership</span>
+      </button>
+
+      <button class="side-link" data-view="payments">
+        ₹ <span>Payment &amp; billing</span>
+      </button>
+
+      <button class="side-link" data-view="notifications">
+        ✳ <span>Notifications</span>
+      </button>
+
+      <button class="side-link" data-view="analytics">
+        ▥ <span>Fitness analytics</span>
+      </button>
+
+    </nav>
+
+    <!-- Sidebar bottom -->
+    <div class="sidebar-bottom">
+
+      <div class="side-note">
+        SHOW UP.<br>
+        DO THE WORK.<br>
+        REPEAT. ✳
+      </div>
+
+      <button id="logoutBtn" class="logout-btn">
+        ↗ Log out
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =================================
+       MAIN DASHBOARD
+  ================================== -->
+
+  <main class="dashboard-main">
+
+    <!-- Top header -->
+    <header class="dash-top">
+
+      <div>
+        <p class="eyebrow" id="todayLabel">
+          YOUR MEMBER SPACE
+        </p>
+
+        <h1 id="pageTitle">
+          Good things take reps.
+        </h1>
+      </div>
+
+      <div class="user-chip">
+
+        <span class="avatar" id="avatar">B</span>
+
+        <span>
+          <b id="userName">Member</b>
+          <small>MEMBER</small>
+        </span>
+
+      </div>
+
+    </header>
+
+    <!-- Dynamic dashboard content -->
+    <div id="viewRoot">
+      <div class="loading">
+        Loading your dashboard...
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- =================================
+       CLASS BOOKING MODAL
+  ================================== -->
+
+  <div
+    id="bookingModal"
+    class="booking-modal"
+    aria-hidden="true"
+  >
+
+    <div class="booking-modal-card">
+
+      <button
+        type="button"
+        class="booking-close"
+        id="closeBooking"
+        aria-label="Close booking popup"
+      >
+        ×
+      </button>
+
+      <div class="booking-modal-top">
+
+        <span class="booking-brand">
+          BIRYANI<br>BICEPS
+        </span>
+
+        <span class="booking-stamp">
+          ✳ B&amp;B<br>REP CLUB
+        </span>
+
+      </div>
+
+      <p class="booking-eyebrow" id="bookingEyebrow">
+        YOUR NEXT SESSION
+      </p>
+
+      <h2 id="bookingHeading">
+        Book your<br><em>spot!</em>
+      </h2>
+
+      <p class="booking-subtitle" id="bookingSubtitle">
+        Pick your date and time. We'll save your spot.
+      </p>
+
+      <!-- Class and trainer details -->
+      <div class="booking-details">
+
+        <div class="booking-detail">
+
+          <span class="booking-detail-icon">✳</span>
+
+          <div>
+            <small>CLASS</small>
+            <b id="modalClassName">Class name</b>
+          </div>
+
+        </div>
+
+        <div class="booking-detail">
+
+          <span class="booking-detail-icon">💪</span>
+
+          <div>
+            <small>TRAINER</small>
+            <b id="modalTrainer">Trainer name</b>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Booking form -->
+      <form id="bookingForm" class="booking-form">
+
+        <label>
+          SELECT DATE
+          <input
+            type="date"
+            id="bookingDate"
+            required
+          >
+        </label>
+
+        <label>
+          SELECT TIME
+          <input
+            type="time"
+            id="bookingTime"
+            required
+          >
+        </label>
+
+        <button
+          type="submit"
+          class="booking-confirm"
+          id="bookingSubmit"
+        >
+          CONFIRM BOOKING ↗
+        </button>
+
+      </form>
+
+      <!-- Booking success -->
+      <div
+        id="bookingSuccess"
+        class="booking-success"
+        hidden
+      >
+
+        <div class="booking-success-icon">
+          ✓
+        </div>
+
+        <h3>You're<br><em>booked!</em></h3>
+
+        <p>
+          Your B&amp;B session is officially on the calendar.
+        </p>
+
+        <div class="booking-success-info">
+
+          <div>
+            <small>CLASS</small>
+            <b id="successClass"></b>
+          </div>
+
+          <div>
+            <small>TRAINER</small>
+            <b id="successTrainer"></b>
+          </div>
+
+          <div>
+            <small>DATE</small>
+            <b id="successDate"></b>
+          </div>
+
+          <div>
+            <small>TIME</small>
+            <b id="successTime"></b>
+          </div>
+
+        </div>
+
+        <button
+          type="button"
+          class="booking-confirm"
+          id="bookingDone"
+        >
+          GOT IT! ✳
+        </button>
+
+      </div>
+
+      <!-- Modal footer artwork -->
+      <div class="booking-art">
+
+        <span>
+          SHOW UP.<br>
+          DO THE WORK.
+        </span>
+
+        <span class="booking-biryani">🍛</span>
+
+        <span class="booking-muscle">💪</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Toast notifications -->
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+  ></div>
+
+
+  <!-- =================================
+       JAVASCRIPT
+  ================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script src="js/config.js"></script>
+
+  <script type="module" src="js/dashboard.js"></script>
+
+</body>
+</html>
